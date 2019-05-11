@@ -10,7 +10,7 @@ public:
 	void setValue(int x);
 	int getValue();
 	DivideTest(int a);
-	void operator () ();
+	int operator () ();
 };
 
 #endif // !_DIVIDETEST_H_

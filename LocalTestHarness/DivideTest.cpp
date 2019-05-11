@@ -16,13 +16,9 @@ int DivideTest::getValue() {
 	return divisor;
 }
 
-void DivideTest::operator() () {
-	if (divisor == 0)
-	{
+int DivideTest::operator() () {
+	if (divisor == 0) {
 		throw "Divided by zero exception!";
 	}
-	else
-	{
-		std::cout << "Done, the quotient is: " << dividend / divisor << std::endl;
-	}
+	return (dividend / divisor);
 }

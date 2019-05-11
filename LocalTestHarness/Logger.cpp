@@ -17,6 +17,10 @@ Logger::Logger(Level l) {
 	level = l;
 }
 
+Logger::Logger() {
+	level =info;
+}
+
 void Logger::setLogLevel(Level l) {
 	level = l;
 }
@@ -24,7 +28,6 @@ void Logger::setLogLevel(Level l) {
 // The next few functions are our multi level printers. They only print when
 // the level (or higher) matches, and formats the output for us.
 //===================================================================
-
 void Logger::printer(Level myLevel, std::string str) {
 	std::string levelHeader = "[Unkonwn]";
 	std::string timestamp;
@@ -79,7 +82,7 @@ void Logger::Info(std::string str) {
 
 // Debug only prints debug marked statements.
 void Logger::Debug(std::string str) {
-	if (level >= debug) {
+	if (level == debug) {
 		printer(debug, str);
 	}
 }
