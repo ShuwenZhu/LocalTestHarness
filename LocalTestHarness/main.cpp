@@ -10,6 +10,7 @@
 const int TESTNUM = 5;
 
 int main(void) {
+	
 	TestHarness harness(2);
 	DivideTest myTest(0);
 	Logger log(debug);
@@ -39,5 +40,8 @@ int main(void) {
 
 	// Now call on both lamdas!
 	result = harness.testCallableObjs({ f1, f2 });
+
+
+	system("pause");
 	return 0;
 }
