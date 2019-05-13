@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  DivideTestLibrary.cpp
+V:\Source\Repos\LocalTestHarness\DivideTestDll\DivideTestDll\DivideTestLibrary.cpp(8): warning C4273: 'test': inconsistent dll linkage
+  V:\Source\Repos\LocalTestHarness\DivideTestDll\DivideTestDll\DivideTestLibrary.h(11): note: see previous definition of 'test'
+  dllmain.cpp
+  Generating Code...
+     Creating library V:\Source\Repos\LocalTestHarness\DivideTestDll\Debug\DivideTestDll.lib and object V:\Source\Repos\LocalTestHarness\DivideTestDll\Debug\DivideTestDll.exp
+  DivideTestDll.vcxproj -> V:\Source\Repos\LocalTestHarness\DivideTestDll\Debug\DivideTestDll.dll

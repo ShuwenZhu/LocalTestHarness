@@ -1,0 +1,8 @@
+﻿  pch.cpp
+  dllmain.cpp
+  LambdaTestLibrary.cpp
+V:\Source\Repos\LocalTestHarness\LambdaTestDll\LambdaTestDll\LambdaTestLibrary.cpp(9): warning C4273: 'test': inconsistent dll linkage
+  V:\Source\Repos\LocalTestHarness\LambdaTestDll\LambdaTestDll\LambdaTestLibrary.h(11): note: see previous definition of 'test'
+  Generating Code...
+     Creating library V:\Source\Repos\LocalTestHarness\LambdaTestDll\Debug\LambdaTestDll.lib and object V:\Source\Repos\LocalTestHarness\LambdaTestDll\Debug\LambdaTestDll.exp
+  LambdaTestDll.vcxproj -> V:\Source\Repos\LocalTestHarness\LambdaTestDll\Debug\LambdaTestDll.dll

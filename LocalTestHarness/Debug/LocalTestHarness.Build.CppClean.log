@@ -4,6 +4,12 @@ c:\users\kwren\source\repos\localtestharness\localtestharness\debug\testharness.
 c:\users\kwren\source\repos\localtestharness\localtestharness\debug\main.obj
 c:\users\kwren\source\repos\localtestharness\localtestharness\debug\logger.obj
 c:\users\kwren\source\repos\localtestharness\localtestharness\debug\dividetest.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\xmlparser.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\xmlelement.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\xmlelementparts.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\tokenizer.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\xmldocument.obj
+c:\users\kwren\source\repos\localtestharness\localtestharness\debug\utilities.obj
 c:\users\kwren\source\repos\localtestharness\debug\localtestharness.exe
 c:\users\kwren\source\repos\localtestharness\debug\localtestharness.ilk
 c:\users\kwren\source\repos\localtestharness\debug\localtestharness.pdb

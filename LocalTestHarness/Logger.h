@@ -9,6 +9,7 @@ class Logger {
 	void printer(Level myLevel, std::string str);
 
 public:
+	Logger();
 	Logger(Level level);
 	void setLogLevel(Level level);
 	void Critical(std::string str);

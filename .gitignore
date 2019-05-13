@@ -3,4 +3,7 @@
 ################################################################################
 
 /.vs
-/TestDriver/.vs/TestDriver/v16/Browse.VC.opendb
+
+/DivideTestDll/.vs/DivideTestDll/v16
+/TestClient/.vs/TestClient/v16
+
