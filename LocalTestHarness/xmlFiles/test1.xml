@@ -2,6 +2,6 @@
 <!-- XML test case -->
 <TestRequest>
   <test>DivideTestDll.dll</test>
-  <test>DivideTestLibrary</test>
-  <test>badTest</test>
+  <test>LambdaTestDll.dll</test>
+  <test>WillNotLoadTest.dll</test>
 </TestRequest>

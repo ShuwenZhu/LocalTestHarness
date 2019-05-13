@@ -3,11 +3,14 @@
 #include "pch.h"
 #include <functional>
 #include "LambdaTestLibrary.h"
+#include <iostream>
 
+bool Test() {
 
-void test()
-{
-	//std::function<int(void)> f1 = []() { return 1; };
-	std::function<int(void)> f2 = []() { throw "Oh no! My lamda threw an exception!";  return 2; };
-	f2();
+	std::function<int(void)> f2 = []() {return 2;};
+	if (f2() == 2) {
+		std::cout << "Lamda test returned two, failure case.\n";
+		return false;
+	};
+	return true;
 }

@@ -1,16 +1,13 @@
 #include <iostream>
-#include <initializer_list>
-#include <functional>
 #include <sstream>
 
-// XML files from the professors library
+// XML files from Professor Fawcett's Libraries. We only use the two modules linked,
+//     although there are several more.
 #include "../XmlDocument/XmlParser/XmlParser.h"
-#include "../XmlDocument/XmlElementParts/xmlElementParts.h"
 #include "../XmlDocument/XmlDocument/XmlDocument.h"
-#include "../XmlDocument/XmlElement/XmlElement.h"
-#include "../XmlDocument/XmlElementParts/Tokenizer.h"
 
-//Our own files
+
+//Our own project files, the Logger and TestHarness
 #include "TestHarness.h"
 #include "Logger.h"
 
@@ -18,21 +15,20 @@ using sPtr = std::shared_ptr < XmlProcessing::AbstractXmlElement >;
 
 int main(void) {
 
-
 	// Start the logger and harness
 	Logger log(info);
 	TestHarness harness(log);
 
-	log.Debug("This is an Debug level statement.");
-	log.Info("This is an info level statement.");
-	log.Warning("This is an warning level statement.");
-	log.Error("This is an error level statement.");
-	log.Critical("This is an critical level statement.");
+	//log.Debug("This is an Debug level statement.");
+	//log.Info("This is an info level statement.");
+	//log.Warning("This is an warning level statement.");
+	//log.Error("This is an error level statement.");
+	//log.Critical("This is an critical level statement.");
 
 	// This is where our test xml file is.
 	std::string src = "../LocalTestHarness/xmlFiles/test1.xml";
 
-	log.Info("Using the professors library to parse XML:");
+	log.Debug("Using the professors library to parse XML:");
 
 	// Instansiate xml parser, parse our xml to a file
 	XmlProcessing::XmlParser parser(src);
@@ -44,19 +40,24 @@ int main(void) {
 	std::ostringstream os;
 	std::string libName;
 	if (found.size() > 0) {
-
 		for (auto pElem : found) {
+
+			libName = pElem->value();
 			// "test" are the outside containers of our dll names. Skip em.
-			if (pElem->value() == "test") {continue;}
+			if (libName == "test") { continue; }
+
 			os.str("");
-			os << "Dynamically loading and evalutating the dll named: --" << pElem->value() <<  "--.";
+			os << "Dynamically loading and evalutating the dll named: --" << libName <<  "--.";
 			log.Info("============================================================================");
 			log.Info(os.str());
-			libName = pElem->value();
-			harness.TestLibrary(libName);
-			return 0;
-			// Here is where we call our harness on a DLL name. Harness will load the DLL, then execute the itest function
-			//      inside the DLL. Should return us pass/fail here!
+			os.str("");
+			os << "Library --" << libName << "-- test status: ";
+			if (harness.TestLibrary(libName)) {
+				os << "PASS";
+			} else {
+				os << "FAIL";
+			}
+			log.Info(os.str());
 			log.Info("============================================================================");
 		}
 	} else {
@@ -64,9 +65,7 @@ int main(void) {
 		os << "No element called " << testTag << " found.";
 		log.Critical(os.str());
 	}
-
 	log.Info("All done!");
-
 	system("pause");
 	return 0;
 }

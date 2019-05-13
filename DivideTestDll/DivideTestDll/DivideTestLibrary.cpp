@@ -5,9 +5,9 @@
 #include "DivideTest.h"
 
 
-void Test(void) {
+bool Test(void) {
 	DivideTest divideTest;
-	divideTest.setValue(0);
-
+	divideTest.setValue(5);
 	divideTest();
+	return true;
 }

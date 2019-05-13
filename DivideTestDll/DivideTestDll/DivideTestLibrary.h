@@ -5,4 +5,4 @@
 #endif
 
 //extern "C" DIVIDETESTLIBRARY_API bool test(void);
-extern "C" __declspec(dllexport) void Test(void);
+extern "C" __declspec(dllexport) bool Test(void);

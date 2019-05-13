@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdarg>
 #include <initializer_list>
-
+#include <sstream>
 #include <windows.h>
 
 #include "TestHarness.h"
@@ -12,32 +12,51 @@ TestHarness::TestHarness(Logger myLogger) {
 	log = myLogger;
 }
 
-typedef void (*iTest)(void);
+// iTest function prototype
+typedef bool (*iTest)(void);
+
 bool TestHarness::TestLibrary(::std::string libname) {
-	log.Info("I got passed a value!");
-	log.Info(libname);
+	std::ostringstream aggString;
+	bool result = false;
+	aggString << "TestHarness::TestLibrary: called with library --" << libname << "--";
+	log.Debug(aggString.str());
+	aggString.str("");
+
+	//Load the library in libname
 	HINSTANCE hDLL;
 	hDLL = LoadLibraryEx(libname.c_str(), NULL, NULL);
-	if (hDLL != NULL) {
-		log.Info("Yay Loaded a library");
-		iTest myTest = (iTest)GetProcAddress(hDLL, "Test");
 
+	if (hDLL != NULL) {
+
+		aggString << "Library --" << libname << "-- correctly loaded. Extrating Test()..";
+		log.Debug(aggString.str());
+		aggString.str("");
+
+		// Load the Test() function into "myTest", and check if its loaded.
+		iTest myTest = (iTest)GetProcAddress(hDLL, "Test");
 		if (myTest != NULL) {
-			log.Info("Calling test function:");
+
+			log.Debug("TestHarness::TestLibrary: Calling extracted Test() function:");
 			try {
-				myTest();
+				result = myTest();
 			} catch (const char* msg) {
 				log.Error("Caught an exception!");
 				log.Error(msg);
 			}
 		} else {
-			log.Error("Loaded in Library is missing test function");
+			aggString << "Library --" << libname << "-- has no Test() function";
+			log.Error(aggString.str());
 		}
 	} else {
-		log.Error("Unable to load  passed in Library");
+		aggString << "Library --" << libname << "-- was unable to be loaded.";
+		log.Error(aggString.str());
 	}
 	FreeLibrary(hDLL);         // Free the library
-	return true;
+	aggString.str("");
+	aggString << "TestHarness::TestLibrary: Library --" << libname << "-- fully tested. Result: " << result;
+	log.Debug(aggString.str());
+
+	return result;
 }
 
 // Destructor

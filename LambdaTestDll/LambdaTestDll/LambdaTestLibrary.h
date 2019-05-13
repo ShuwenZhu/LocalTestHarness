@@ -8,4 +8,4 @@
 #define LAMBDATESTLIBRARY_API __declspec(dllimport)
 #endif
 
-extern "C" LAMBDATESTLIBRARY_API void test();
+extern "C" LAMBDATESTLIBRARY_API bool Test();
