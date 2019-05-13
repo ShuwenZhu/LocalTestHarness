@@ -1,11 +1,8 @@
-// DivideTestLirbary.h - Contains declarations of DivideTest
-#pragma once
-
-
 #ifdef DIVIDETESTLIBRARY_EXPORTS
 #define DIVIDETESTLIBRARY_API __declspec(dllexport)
-#else
+#else 
 #define DIVIDETESTLIBRARY_API __declspec(dllimport)
 #endif
 
-extern "C" DIVIDETESTLIBRARY_API void test();
+//extern "C" DIVIDETESTLIBRARY_API bool test(void);
+extern "C" __declspec(dllexport) void Test(void);

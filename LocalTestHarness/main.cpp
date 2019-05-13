@@ -42,7 +42,9 @@ int main(void) {
 	std::string testTag = "TestRequest";
 	std::vector<sPtr> found = pDoc->element(testTag).descendents().select();
 	std::ostringstream os;
+	std::string libName;
 	if (found.size() > 0) {
+
 		for (auto pElem : found) {
 			// "test" are the outside containers of our dll names. Skip em.
 			if (pElem->value() == "test") {continue;}
@@ -50,6 +52,9 @@ int main(void) {
 			os << "Dynamically loading and evalutating the dll named: --" << pElem->value() <<  "--.";
 			log.Info("============================================================================");
 			log.Info(os.str());
+			libName = pElem->value();
+			harness.TestLibrary(libName);
+			return 0;
 			// Here is where we call our harness on a DLL name. Harness will load the DLL, then execute the itest function
 			//      inside the DLL. Should return us pass/fail here!
 			log.Info("============================================================================");

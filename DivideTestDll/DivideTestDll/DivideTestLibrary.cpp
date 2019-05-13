@@ -4,8 +4,8 @@
 #include "DivideTestLibrary.h"
 #include "DivideTest.h"
 
-void test()
-{
+
+void Test(void) {
 	DivideTest divideTest;
 	divideTest.setValue(0);
 
