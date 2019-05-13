@@ -22,8 +22,9 @@ This is the logger package. The logger package works by takeing a log level (deb
 	log.Warning("This is an warning level statement.");
 	log.Error("This is an error level statement.");
 	log.Critical("This is an critical level statement.");
-	```
-	This allows us to have a standardized output for all of our printing.
+```
+
+This allows us to have a standardized output for all of our printing.
 
 ### LocalTestHarness/TestHarness.cpp & TestHarness.h
 
