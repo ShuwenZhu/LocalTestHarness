@@ -1,6 +1,7 @@
 #pragma once
 #ifndef TESTHARNESS_H
 #define TESTHARNESS_H
+
 #include <initializer_list>
 #include "Logger.h"
 

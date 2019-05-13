@@ -18,9 +18,11 @@ using sPtr = std::shared_ptr < XmlProcessing::AbstractXmlElement >;
 
 int main(void) {
 
+
 	// Start the logger and harness
 	Logger log(info);
 	TestHarness harness(log);
+
 	log.Debug("This is an Debug level statement.");
 	log.Info("This is an info level statement.");
 	log.Warning("This is an warning level statement.");
@@ -59,6 +61,7 @@ int main(void) {
 	}
 
 	log.Info("All done!");
+
 	system("pause");
 	return 0;
 }
