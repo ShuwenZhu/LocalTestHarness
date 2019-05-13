@@ -4,6 +4,7 @@
 
 #include <initializer_list>
 #include "Logger.h"
+#include "ITestInterface.h"
 
 class TestHarness {
 private:

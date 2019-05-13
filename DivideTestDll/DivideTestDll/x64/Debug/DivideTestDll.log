@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  DivideTestLibrary.cpp
+  dllmain.cpp
+  Generating Code...
+     Creating library V:\Source\Repos\LocalTestHarness\x64\Debug\DivideTestDll.lib and object V:\Source\Repos\LocalTestHarness\x64\Debug\DivideTestDll.exp
+  DivideTestDll.vcxproj -> V:\Source\Repos\LocalTestHarness\x64\Debug\DivideTestDll.dll

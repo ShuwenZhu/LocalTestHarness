@@ -71,5 +71,8 @@
     <ClInclude Include="..\XmlDocument\Utilities\Utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ITestInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

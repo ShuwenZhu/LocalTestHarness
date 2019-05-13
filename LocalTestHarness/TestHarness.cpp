@@ -13,7 +13,7 @@ TestHarness::TestHarness(Logger myLogger) {
 }
 
 // iTest function prototype
-typedef bool (*iTest)(void);
+//typedef bool (*iTest)(void);
 
 bool TestHarness::TestLibrary(::std::string libname) {
 	std::ostringstream aggString;
@@ -23,6 +23,23 @@ bool TestHarness::TestLibrary(::std::string libname) {
 	aggString.str("");
 
 	//Load the library in libname
+	if (libname.compare("DivideTestDll.dll") == 0)
+	{
+		DivideTestDriver dtestDriver;
+		dtestDriver.set_logger(log);
+		result = dtestDriver.test();
+	}
+	else if (libname.compare("LambdaTestDll.dll") == 0)
+	{
+		LambdaTestDriver ltestDriver;
+		ltestDriver.set_logger(log);
+		result = ltestDriver.test();
+	}
+	else
+	{
+		log.Error("Not supported library");
+	}
+	/*
 	HINSTANCE hDLL;
 	hDLL = LoadLibraryEx(libname.c_str(), NULL, NULL);
 
@@ -53,6 +70,7 @@ bool TestHarness::TestLibrary(::std::string libname) {
 	}
 	FreeLibrary(hDLL);         // Free the library
 	aggString.str("");
+	*/
 	aggString << "TestHarness::TestLibrary: Library --" << libname << "-- fully tested. Result: " << result;
 	log.Debug(aggString.str());
 
